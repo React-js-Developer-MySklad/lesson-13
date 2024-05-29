@@ -23,16 +23,17 @@ export const ChildWithError = () => {
         }
     }, [state]);
 
-
+    // https://github.com/testing-library/react-hooks-testing-library/issues/305
 
 
     // event handler
     const onClickHandler = () => {
         try {
-            throw new Error('Something wrong with onClick handler')
+            //throw new Error('Something wrong with onClick handler')
         } catch (e: any) {
-            setState(true)
+
         }
+        setState(true)
     }
 
     return <button onClick={() => onClickHandler()}> Click Me</button>

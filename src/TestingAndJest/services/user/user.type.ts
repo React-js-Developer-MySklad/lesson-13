@@ -1,4 +1,5 @@
-import { UserRole } from 'src/pages/Lessons/TestingAndJest/services/role/role.type';
+import {UserRole} from "../role/role.type";
+
 
 export type User = {
   id: number;

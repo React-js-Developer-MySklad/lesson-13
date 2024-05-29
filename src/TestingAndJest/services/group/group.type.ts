@@ -1,4 +1,5 @@
-import { User } from 'src/pages/Lessons/TestingAndJest/services/user/user.type';
+import {User} from "../user/user.type";
+
 
 export type Group = {
   id: number;

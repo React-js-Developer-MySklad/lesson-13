@@ -14,6 +14,13 @@ module.exports = {
         // https://webpack.js.org/configuration/resolve/#resolveextensions
         extensions: ['.js', '.jsx', '.ts', '.tsx'],
     },
+    devServer: {
+        client: {
+            overlay: {
+                runtimeErrors: false
+            }
+        }
+    },
     // Определяет директорию в которую помещаются файлы сборки
     output: {
         // путь до директории с файлами сборки

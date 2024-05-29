@@ -23,7 +23,7 @@ export class ErrorBoundary extends Component<PropsWithChildren, State> {
 
     render() {
         if (this.state.error) {
-            return <p>Something went badly wrong</p>;
+            return <p>Something went badly wrong {this.state.error.message}</p>;
         }
 
         return this.props.children;
