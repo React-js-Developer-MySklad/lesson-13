@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`colors hex2rgb complex 1`] = `
+[
+  171,
+  205,
+  234,
+]
+`;
