@@ -3,6 +3,10 @@ import {ErrorBoundary} from "./ErrorBoundary";
 import '@testing-library/jest-dom'
 import React, {useEffect, useState} from "react";
 
+const HasErrorInComponentFunction = () => {
+    throw new Error('Error In Body');
+}
+
 const HasErrorOnUnmount = () => {
     useEffect(() => {
         return () => {
@@ -45,12 +49,17 @@ describe('ErrorBoundary', () => {
         jest.spyOn(console, "error").mockImplementation(() => {});
     });
 
-    it('should catch on mount error', async () => {
+    it('should catch error in body component', async () => {
+        render(<ErrorBoundary><HasErrorInComponentFunction/></ErrorBoundary>)
+        expect(await screen.findByText('Error In Body', {exact: false}, {timeout: 1200})).toBeInTheDocument()
+    })
+
+    it('should catch error on mount', async () => {
         render(<ErrorBoundary><HasErrorOnMount/></ErrorBoundary>)
         expect(await screen.findByText('Error On Mount', {exact: false})).toBeInTheDocument()
     })
 
-    it('should catch on unmount error', async () => {
+    it('should catch error on unmount', async () => {
         const Component: React.FC<{isRendered: boolean}> = ({isRendered}) => {
             return <ErrorBoundary>{isRendered && <HasErrorOnUnmount/>}</ErrorBoundary>
         }
@@ -62,11 +71,8 @@ describe('ErrorBoundary', () => {
         expect(await screen.findByText('Error On Unmount', {exact: false})).toBeInTheDocument()
     })
 
-
-
-    it('should catch on rerender error', async () => {
+    it('should catch error on rerender', async () => {
         render(<ErrorBoundary><HasErrorOnRerender/></ErrorBoundary>)
         expect(await screen.findByText('Error On Rerender', {exact: false}, {timeout: 1200})).toBeInTheDocument()
     })
-
 })
