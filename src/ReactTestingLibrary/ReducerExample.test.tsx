@@ -1,4 +1,3 @@
-/* eslint-disable import/no-extraneous-dependencies, default-param-last */
 import React, { useReducer } from 'react';
 import { render, fireEvent } from '@testing-library/react';
 import '@testing-library/jest-dom';

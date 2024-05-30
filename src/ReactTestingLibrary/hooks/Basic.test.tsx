@@ -1,4 +1,3 @@
-/* eslint-disable import/no-extraneous-dependencies */
 import { useState, useCallback } from 'react';
 import { renderHook, act } from '@testing-library/react';
 

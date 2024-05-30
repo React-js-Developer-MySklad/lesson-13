@@ -1,4 +1,3 @@
-/* eslint-disable import/no-extraneous-dependencies */
 import React, { useRef, FC } from 'react';
 import { render, screen } from '@testing-library/react';
 import '@testing-library/jest-dom';

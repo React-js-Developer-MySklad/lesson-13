@@ -1,4 +1,3 @@
-/* eslint-disable import/no-extraneous-dependencies */
 import React, { useState } from 'react';
 import { screen, render, fireEvent } from '@testing-library/react';
 import '@testing-library/jest-dom';
